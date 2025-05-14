@@ -3,9 +3,10 @@ package yukams.app.background_locator_2.provider
 import android.annotation.SuppressLint
 import android.content.Context
 import com.google.android.gms.location.*
+import com.google.android.gms.location.LocationServices
 
 class GoogleLocationProviderClient(context: Context, override var listener: LocationUpdateListener?) : BLLocationProvider {
-    private val client: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
+    private val client = LocationServices.getFusedLocationProviderClient(context)
     private val locationCallback = LocationListener(listener)
 
     override fun removeLocationUpdates() {
